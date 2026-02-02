@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Model checkpoints (large files - consider using Git LFS)
+# Uncomment if you don't want to track model files:
+# surrogate_model/checkpoints/*.pt
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.exe
+*.dll
+build/
+dist/
+*.egg-info/

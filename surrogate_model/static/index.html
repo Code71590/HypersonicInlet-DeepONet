@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFD Surrogate Model | Hypersonic Inlet Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f5f5f7;
+            --bg-sidebar: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-muted: #a1a1a6;
+            --accent-primary: #34c759;
+            --accent-secondary: #ff9f0a;
+            --accent-coral: #ff6b6b;
+            --border-color: #e5e5ea;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition-fluid: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Liquid background animation */
+        .liquid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .liquid-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -7s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, -50px) scale(1.1) rotate(5deg);
+            }
+            50% {
+                transform: translate(-30px, 30px) scale(0.95) rotate(-5deg);
+            }
+            75% {
+                transform: translate(20px, 60px) scale(1.05) rotate(3deg);
+            }
+        }
+
+        /* Layout */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+            transition: transform 0.5s var(--transition-fluid);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--text-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            transition: transform 0.4s var(--transition-bounce);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(180deg) scale(1.1);
+        }
+
+        .logo-text h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Section titles */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        /* Form Groups */
+        .input-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 0.875rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .form-group:focus-within label {
+            color: var(--accent-primary);
+        }
+
+        .input-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+        }
+
+        .input-wrapper::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: all 0.4s var(--transition-fluid);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .input-wrapper:focus-within::before {
+            width: 100%;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-main);
+            border: 1px solid transparent;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: all 0.3s var(--transition-fluid);
+        }
+
+        input[type="number"]:hover {
+            background: #ebebed;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            background: #e8e8ea;
+            border-color: var(--accent-primary);
+        }
+
+        /* Remove number input arrows */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--transition-fluid);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s var(--transition-fluid), height 0.6s var(--transition-fluid);
+        }
+
+        .btn:active::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: #e8f5e9;
+            color: var(--accent-primary);
+            border: 1px solid #c8e6c9;
+        }
+
+        .btn-secondary:hover {
+            background: #c8e6c9;
+            transform: translateY(-1px);
+        }
+
+        /* Spinner */
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .page-title span {
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .page-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Results Grid */
+        .results-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 1.5rem;
+            flex: 1;
+            align-content: start;
+        }
+
+        /* Result Cards */
+        .result-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s var(--transition-fluid);
+            transform-origin: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.6s var(--transition-fluid) forwards;
+        }
+
+        .result-card:nth-child(1) { animation-delay: 0s; }
+        .result-card:nth-child(2) { animation-delay: 0.1s; }
+        .result-card:nth-child(3) { animation-delay: 0.2s; }
+        .result-card:nth-child(4) { animation-delay: 0.3s; }
+        .result-card:nth-child(5) { animation-delay: 0.4s; }
+        .result-card:nth-child(6) { animation-delay: 0.5s; }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-primary);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-badge {
+            background: #e8f5e9;
+            color: var(--accent-primary);
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+
+        .card-image {
+            width: 100%;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-main);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s var(--transition-fluid);
+        }
+
+        .result-card:hover .card-image img {
+            transform: scale(1.02);
+        }
+
+        /* Download Row */
+        .download-row {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .download-row .btn-secondary {
+            width: auto;
+            padding: 0.875rem 2rem;
+        }
+
+        /* Placeholder */
+        .placeholder {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 2px dashed var(--border-color);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 3rem;
+            transition: all 0.4s var(--transition-fluid);
+        }
+
+        .placeholder:hover {
+            border-color: var(--text-muted);
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.6;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .placeholder h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .placeholder p {
+            font-size: 0.9rem;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        /* Error Placeholder */
+        .placeholder.error {
+            border-color: var(--accent-coral);
+            background: #fff5f5;
+        }
+
+        .placeholder.error .placeholder-icon {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Stats Mini Cards */
+        .stats-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s var(--transition-fluid);
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .stat-icon.green { background: #e8f5e9; }
+        .stat-icon.orange { background: #fff3e0; }
+        .stat-icon.pink { background: #fce4ec; }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Mobile Responsive - Stacked Layout */
+        @media (max-width: 1024px) {
+            .app-container {
+                flex-direction: column;
+                height: auto;
+                overflow-y: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 0;
+                transform: none;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 1.5rem;
+                overflow-y: visible;
+                z-index: 10;
+            }
+
+            .sidebar.open {
+                transform: none;
+            }
+            
+            /* Make inputs compact on mobile */
+            .input-section {
+                margin-bottom: 1rem;
+            }
+            
+            .form-group {
+                margin-bottom: 0.75rem;
+            }
+
+            /* 2-column grid for inputs on mobile for compactness */
+            .input-section .form-group {
+                display: inline-block;
+                width: 48%;
+                margin-right: 2%;
+                vertical-align: top;
+            }
+            
+            .input-section .form-group:nth-child(even) {
+                margin-right: 0;
+            }
+            
+            /* Section header full width */
+            .section-header {
+                width: 100%;
+                display: flex;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+                height: auto;
+                min-height: auto;
+            }
+
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* Hide mobile menu toggle since we are stacking */
+            .mobile-header,
+            .menu-toggle,
+            .overlay {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Liquid Background -->
+    <div class="liquid-bg">
+        <div class="liquid-blob blob-1"></div>
+        <div class="liquid-blob blob-2"></div>
+        <div class="liquid-blob blob-3"></div>
+    </div>
+
+    <!-- No Overlay needed for stacked layout -->
+    <div class="overlay" id="overlay"></div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <!-- Custom Aerodynamics Icon SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                        <path d="M2 12C2 12 5 8 9 8C13 8 15 12 19 12C23 12 22 8 22 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 16C2 16 5 12 9 12C13 12 15 16 19 16C23 16 22 12 22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="19" cy="8" r="1.5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>CFD Predictor</h1>
+                    <span>DeepONet Model</span>
+                </div>
+            </div>
+
+            <form id="predictForm">
+                <div class="input-section">
+                    <div class="section-header">Geometry Parameters</div>
+                    
+                    <div class="form-group">
+                        <label>First Ramp Angle (deg)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="First_Ramp_Angle_deg" value="10.0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Second Ramp Angle (deg)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="Second_Ramp_Angle_deg" value="15.0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Cowl Deflection Angle (deg)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="Cowl_Deflection_Angle_deg" value="5.0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Inlet Length (m)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.01" name="Inlet_Length_m" value="1.0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Throat Height (m)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.01" name="Throat_Height_m" value="0.1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Cowl Lip Position (m)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.01" name="Cowl_Lip_Position_m" value="0.5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <div class="section-header">Flow Conditions</div>
+                    
+                    <div class="form-group">
+                        <label>Mach Number</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="Mach_Number" value="5.0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Static Pressure (Pa)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="10" name="Static_Pressure_Pa" value="2000.0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Static Temperature (K)</label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="Static_Temperature_K" value="220.0">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="predictBtn">
+                    <span class="spinner" id="spinner"></span>
+                    <span id="btnText">Run Prediction</span>
+                </button>
+            </form>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="page-header">
+                <h2 class="page-title">Flow Field <span>Predictions</span></h2>
+                <p class="page-subtitle">Visualize CFD results for hypersonic inlet designs</p>
+            </div>
+
+            <section class="results-container" id="resultsArea">
+                <div class="placeholder">
+                    <div class="placeholder-icon">🔬</div>
+                    <h3>Ready to Predict</h3>
+                    <p>Configure your inlet parameters and click <strong>Run Prediction</strong> to generate flow field visualizations.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const form = document.getElementById('predictForm');
+        const resultsArea = document.getElementById('resultsArea');
+        const predictBtn = document.getElementById('predictBtn');
+        const spinner = document.getElementById('spinner');
+        const btnText = document.getElementById('btnText');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const menuToggle = document.getElementById('menuToggle');
+
+        // Store current form data for download (as plain object)
+        let currentData = null;
+
+        // Mobile menu toggle
+        menuToggle?.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+
+        overlay?.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Set loading state
+            predictBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            btnText.textContent = 'Running Inference...';
+            resultsArea.style.opacity = '0.6';
+            resultsArea.style.transition = 'opacity 0.3s ease';
+
+            // Gather data
+            const formData = new FormData(form);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = parseFloat(value);
+            }
+            // Store as plain object for download
+            currentData = {...data};
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    const errData = await response.json().catch(() => ({}));
+                    throw new Error(errData.detail || response.statusText);
+                }
+
+                const result = await response.json();
+                
+                // Clear previous results
+                resultsArea.innerHTML = '';
+                resultsArea.style.opacity = '1';
+
+                // Stats Row
+                const statsRow = document.createElement('div');
+                statsRow.className = 'stats-row';
+                statsRow.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-icon green">🚀</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Mach Number</div>
+                            <div class="stat-value">${data.Mach_Number.toFixed(1)}</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">🌡️</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Temperature</div>
+                            <div class="stat-value">${data.Static_Temperature_K.toFixed(0)} K</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pink">📊</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Pressure</div>
+                            <div class="stat-value">${data.Static_Pressure_Pa.toFixed(0)} Pa</div>
+                        </div>
+                    </div>
+                `;
+                resultsArea.appendChild(statsRow);
+                
+                // Add Download CSV Button
+                const downloadRow = document.createElement('div');
+                downloadRow.className = 'download-row';
+                
+                const downloadBtn = document.createElement('button');
+                downloadBtn.className = 'btn btn-secondary';
+                downloadBtn.innerHTML = '📥 Download Results as CSV';
+                downloadBtn.addEventListener('click', () => downloadCsv());
+                
+                downloadRow.appendChild(downloadBtn);
+                resultsArea.appendChild(downloadRow);
+
+                // Order of fields with nice labels
+                const fields = [
+                    { key: 'mach-number', label: 'Mach Number Distribution', badge: 'Flow' },
+                    { key: 'pressure', label: 'Static Pressure', badge: 'Thermodynamic' },
+                    { key: 'density', label: 'Density Field', badge: 'Thermodynamic' },
+                    { key: 'velocity-magnitude', label: 'Velocity Magnitude', badge: 'Flow' },
+                    { key: 'temperature', label: 'Temperature Distribution', badge: 'Thermodynamic' }
+                ];
+
+                fields.forEach((field, index) => {
+                    if (result.images[field.key]) {
+                        const card = document.createElement('div');
+                        card.className = 'result-card';
+                        card.style.animationDelay = `${index * 0.1}s`;
+                        
+                        card.innerHTML = `
+                            <div class="card-header">
+                                <div class="card-title">${field.label}</div>
+                                <span class="card-badge">${field.badge}</span>
+                            </div>
+                            <div class="card-image">
+                                <img src="${result.images[field.key]}" alt="${field.label}">
+                            </div>
+                        `;
+                        resultsArea.appendChild(card);
+                    }
+                });
+
+                // Close mobile sidebar after prediction
+                if (window.innerWidth <= 1024) {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                }
+
+            } catch (err) {
+                console.error(err);
+                resultsArea.innerHTML = `
+                    <div class="placeholder error">
+                        <div class="placeholder-icon">⚠️</div>
+                        <h3>Prediction Failed</h3>
+                        <p>${err.message}</p>
+                    </div>
+                `;
+                resultsArea.style.opacity = '1';
+            } finally {
+                // Reset button
+                predictBtn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.textContent = 'Run Prediction';
+            }
+        });
+
+        async function downloadCsv() {
+            if (!currentData) {
+                alert('Please run a prediction first');
+                return;
+            }
+            
+            // Find the download button and show loading state
+            const downloadBtn = document.querySelector('.download-row .btn-secondary');
+            const originalText = downloadBtn ? downloadBtn.innerHTML : '';
+            if (downloadBtn) {
+                downloadBtn.innerHTML = '⏳ Downloading...';
+                downloadBtn.disabled = true;
+            }
+            
+            try {
+                const response = await fetch('/download_csv', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(currentData)
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'cfd_prediction.csv';
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                } else {
+                    const errData = await response.json().catch(() => ({}));
+                    alert('Download failed: ' + (errData.detail || response.statusText));
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Download error: ' + err.message);
+            } finally {
+                // Restore button state
+                if (downloadBtn) {
+                    downloadBtn.innerHTML = originalText || '📥 Download Results as CSV';
+                    downloadBtn.disabled = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

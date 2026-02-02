@@ -1,0 +1,1361 @@
+Microsoft Windows [Version 10.0.19045.6456]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model>python visualize.py
+Loaded model from C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\best_model.pt
+Device: cuda
+Loaded 150 input parameter sets from hypersonic_inlet_input_parameters.csv
+Auto-detected 50 CFD output files:
+  d1.csv -> Sample_ID 1
+  d2.csv -> Sample_ID 2
+  d3.csv -> Sample_ID 3
+  d4.csv -> Sample_ID 4
+  d5.csv -> Sample_ID 5
+  d6.csv -> Sample_ID 6
+  d7.csv -> Sample_ID 7
+  d8.csv -> Sample_ID 8
+  d9.csv -> Sample_ID 9
+  d10.csv -> Sample_ID 10
+  d11.csv -> Sample_ID 11
+  d12.csv -> Sample_ID 12
+  d13.csv -> Sample_ID 13
+  d14.csv -> Sample_ID 14
+  d15.csv -> Sample_ID 15
+  d16.csv -> Sample_ID 16
+  d17.csv -> Sample_ID 17
+  d18.csv -> Sample_ID 18
+  d19.csv -> Sample_ID 19
+  d20.csv -> Sample_ID 20
+  d21.csv -> Sample_ID 21
+  d22.csv -> Sample_ID 22
+  d23.csv -> Sample_ID 23
+  d24.csv -> Sample_ID 24
+  d25.csv -> Sample_ID 25
+  d26.csv -> Sample_ID 26
+  d27.csv -> Sample_ID 27
+  d28.csv -> Sample_ID 28
+  d29.csv -> Sample_ID 29
+  d30.csv -> Sample_ID 30
+  d31.csv -> Sample_ID 31
+  d32.csv -> Sample_ID 32
+  d33.csv -> Sample_ID 33
+  d34.csv -> Sample_ID 34
+  d35.csv -> Sample_ID 35
+  d36.csv -> Sample_ID 36
+  d37.csv -> Sample_ID 37
+  d38.csv -> Sample_ID 38
+  d39.csv -> Sample_ID 39
+  d40.csv -> Sample_ID 40
+  d41.csv -> Sample_ID 41
+  d42.csv -> Sample_ID 42
+  d43.csv -> Sample_ID 43
+  d44.csv -> Sample_ID 44
+  d45.csv -> Sample_ID 45
+  d46.csv -> Sample_ID 46
+  d47.csv -> Sample_ID 47
+  d48.csv -> Sample_ID 48
+  d49.csv -> Sample_ID 49
+  d50.csv -> Sample_ID 50
+Loaded d1.csv -> Sample_ID 1 (602599 nodes)
+Loaded d2.csv -> Sample_ID 2 (878251 nodes)
+Loaded d3.csv -> Sample_ID 3 (878250 nodes)
+Loaded d4.csv -> Sample_ID 4 (1353905 nodes)
+Loaded d5.csv -> Sample_ID 5 (602602 nodes)
+Loaded d6.csv -> Sample_ID 6 (878250 nodes)
+Loaded d7.csv -> Sample_ID 7 (878250 nodes)
+Loaded d8.csv -> Sample_ID 8 (940750 nodes)
+Loaded d9.csv -> Sample_ID 9 (878250 nodes)
+Loaded d10.csv -> Sample_ID 10 (878250 nodes)
+Loaded d11.csv -> Sample_ID 11 (903199 nodes)
+Loaded d12.csv -> Sample_ID 12 (878250 nodes)
+Loaded d13.csv -> Sample_ID 13 (722799 nodes)
+Loaded d14.csv -> Sample_ID 14 (914399 nodes)
+Loaded d15.csv -> Sample_ID 15 (914399 nodes)
+Loaded d16.csv -> Sample_ID 16 (914399 nodes)
+Loaded d17.csv -> Sample_ID 17 (940750 nodes)
+Loaded d18.csv -> Sample_ID 18 (914401 nodes)
+Loaded d19.csv -> Sample_ID 19 (914399 nodes)
+Loaded d20.csv -> Sample_ID 20 (914403 nodes)
+Loaded d21.csv -> Sample_ID 21 (914400 nodes)
+Loaded d22.csv -> Sample_ID 22 (914400 nodes)
+Loaded d23.csv -> Sample_ID 23 (914401 nodes)
+Loaded d24.csv -> Sample_ID 24 (914401 nodes)
+Loaded d25.csv -> Sample_ID 25 (762299 nodes)
+Loaded d26.csv -> Sample_ID 26 (762300 nodes)
+Loaded d27.csv -> Sample_ID 27 (762299 nodes)
+Loaded d28.csv -> Sample_ID 28 (762299 nodes)
+Loaded d29.csv -> Sample_ID 29 (914399 nodes)
+Loaded d30.csv -> Sample_ID 30 (762299 nodes)
+Loaded d31.csv -> Sample_ID 31 (914399 nodes)
+Loaded d32.csv -> Sample_ID 32 (914401 nodes)
+Loaded d33.csv -> Sample_ID 33 (914399 nodes)
+Loaded d34.csv -> Sample_ID 34 (762299 nodes)
+Loaded d35.csv -> Sample_ID 35 (762300 nodes)
+Loaded d36.csv -> Sample_ID 36 (762299 nodes)
+Loaded d37.csv -> Sample_ID 37 (762299 nodes)
+Loaded d38.csv -> Sample_ID 38 (914401 nodes)
+Loaded d39.csv -> Sample_ID 39 (762299 nodes)
+Loaded d40.csv -> Sample_ID 40 (914399 nodes)
+Loaded d41.csv -> Sample_ID 41 (940753 nodes)
+Loaded d42.csv -> Sample_ID 42 (940750 nodes)
+Loaded d43.csv -> Sample_ID 43 (940749 nodes)
+Loaded d44.csv -> Sample_ID 44 (940753 nodes)
+Loaded d45.csv -> Sample_ID 45 (1003499 nodes)
+Loaded d46.csv -> Sample_ID 46 (940751 nodes)
+Loaded d47.csv -> Sample_ID 47 (940750 nodes)
+Loaded d48.csv -> Sample_ID 48 (940752 nodes)
+Loaded d49.csv -> Sample_ID 49 (1878250 nodes)
+Loaded d50.csv -> Sample_ID 50 (940752 nodes)
+Normalization stats computed from 50 simulations
+
+Validating Sample_ID 1...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.8787e+05   2.9084e+05   50.70%     0.7429
+density                   7.5177e-01   1.1552e+00   54.22%     0.7060
+velocity-magnitude        1.1449e+02   2.3129e+02   75.17%     0.4350
+mach-number               5.0962e-01   7.4265e-01   63.46%     0.5973
+temperature               9.1329e+01   1.4434e+02   63.68%     0.5945
+================================================================================
+  Downsampled 602,599 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_1\sample1_pressure_comparison.png
+  Downsampled 602,599 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_1\sample1_density_comparison.png
+  Downsampled 602,599 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_1\sample1_velocity-magnitude_comparison.png
+  Downsampled 602,599 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_1\sample1_mach-number_comparison.png
+  Downsampled 602,599 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_1\sample1_temperature_comparison.png
+
+Validating Sample_ID 2...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.3150e+05   2.0715e+05   33.24%     0.8895
+density                   4.6976e-01   7.3244e-01   32.81%     0.8924
+velocity-magnitude        8.3641e+01   1.7576e+02   54.47%     0.7033
+mach-number               3.5522e-01   5.5766e-01   43.16%     0.8137
+temperature               6.9713e+01   1.1976e+02   48.14%     0.7682
+================================================================================
+  Downsampled 878,251 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_2\sample2_pressure_comparison.png
+  Downsampled 878,251 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_2\sample2_density_comparison.png
+  Downsampled 878,251 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_2\sample2_velocity-magnitude_comparison.png
+  Downsampled 878,251 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_2\sample2_mach-number_comparison.png
+  Downsampled 878,251 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_2\sample2_temperature_comparison.png
+
+Validating Sample_ID 3...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.2468e+05   3.3105e+05   44.34%     0.8034
+density                   8.0820e-01   1.1728e+00   47.81%     0.7715
+velocity-magnitude        1.6797e+02   2.8150e+02   72.42%     0.4755
+mach-number               6.0677e-01   8.6332e-01   60.11%     0.6387
+temperature               1.1379e+02   1.6775e+02   58.85%     0.6536
+================================================================================
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_3\sample3_pressure_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_3\sample3_density_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_3\sample3_velocity-magnitude_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_3\sample3_mach-number_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_3\sample3_temperature_comparison.png
+
+Validating Sample_ID 4...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.3128e+05   2.2593e+05   50.18%     0.7482
+density                   5.0538e-01   8.0102e-01   48.96%     0.7603
+velocity-magnitude        9.9428e+01   1.9519e+02   48.60%     0.7638
+mach-number               4.0929e-01   5.8894e-01   37.35%     0.8605
+temperature               9.2972e+01   1.4683e+02   42.65%     0.8181
+================================================================================
+  Downsampled 1,353,905 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_4\sample4_pressure_comparison.png
+  Downsampled 1,353,905 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_4\sample4_density_comparison.png
+  Downsampled 1,353,905 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_4\sample4_velocity-magnitude_comparison.png
+  Downsampled 1,353,905 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_4\sample4_mach-number_comparison.png
+  Downsampled 1,353,905 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_4\sample4_temperature_comparison.png
+
+Validating Sample_ID 5...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.7194e+05   4.5722e+05   48.30%     0.7667
+density                   9.0963e-01   1.3491e+00   53.62%     0.7125
+velocity-magnitude        1.5618e+02   2.7994e+02   70.81%     0.4986
+mach-number               6.0625e-01   8.5349e-01   58.29%     0.6602
+temperature               1.1511e+02   1.7033e+02   53.12%     0.7178
+================================================================================
+  Downsampled 602,602 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_5\sample5_pressure_comparison.png
+  Downsampled 602,602 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_5\sample5_density_comparison.png
+  Downsampled 602,602 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_5\sample5_velocity-magnitude_comparison.png
+  Downsampled 602,602 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_5\sample5_mach-number_comparison.png
+  Downsampled 602,602 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_5\sample5_temperature_comparison.png
+
+Validating Sample_ID 6...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.6479e+05   5.2761e+05   65.81%     0.5669
+density                   9.3811e-01   1.8085e+00   74.17%     0.4499
+velocity-magnitude        1.5943e+02   3.0581e+02   75.95%     0.4232
+mach-number               4.9534e-01   7.2112e-01   48.34%     0.7663
+temperature               1.3099e+02   2.0208e+02   62.91%     0.6043
+================================================================================
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_6\sample6_pressure_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_6\sample6_density_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_6\sample6_velocity-magnitude_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_6\sample6_mach-number_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_6\sample6_temperature_comparison.png
+
+Validating Sample_ID 7...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.3254e+05   4.1602e+05   53.70%     0.7116
+density                   6.3107e-01   1.1008e+00   49.10%     0.7590
+velocity-magnitude        1.4206e+02   2.7416e+02   65.63%     0.5692
+mach-number               4.7384e-01   7.4542e-01   46.69%     0.7820
+temperature               1.1415e+02   1.9560e+02   52.68%     0.7225
+================================================================================
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_7\sample7_pressure_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_7\sample7_density_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_7\sample7_velocity-magnitude_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_7\sample7_mach-number_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_7\sample7_temperature_comparison.png
+
+Validating Sample_ID 8...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.2611e+05   2.0407e+05   57.87%     0.6651
+density                   5.0757e-01   7.8545e-01   54.89%     0.6988
+velocity-magnitude        1.0376e+02   1.9467e+02   57.73%     0.6668
+mach-number               4.0732e-01   5.9378e-01   45.63%     0.7918
+temperature               8.2063e+01   1.2666e+02   48.05%     0.7691
+================================================================================
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_8\sample8_pressure_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_8\sample8_density_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_8\sample8_velocity-magnitude_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_8\sample8_mach-number_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_8\sample8_temperature_comparison.png
+
+Validating Sample_ID 9...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.8789e+05   3.6334e+05   38.78%     0.8496
+density                   5.2868e-01   9.4113e-01   36.55%     0.8664
+velocity-magnitude        1.0986e+02   1.9348e+02   49.46%     0.7553
+mach-number               3.6000e-01   5.2973e-01   36.38%     0.8677
+temperature               7.5172e+01   1.1442e+02   36.81%     0.8645
+================================================================================
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_9\sample9_pressure_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_9\sample9_density_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_9\sample9_velocity-magnitude_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_9\sample9_mach-number_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_9\sample9_temperature_comparison.png
+
+Validating Sample_ID 10...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  3.2165e+05   4.7074e+05   47.21%     0.7771
+density                   8.3097e-01   1.1817e+00   50.98%     0.7401
+velocity-magnitude        1.6770e+02   2.4517e+02   58.95%     0.6525
+mach-number               6.1002e-01   8.3030e-01   53.06%     0.7185
+temperature               1.5502e+02   2.1189e+02   52.25%     0.7269
+================================================================================
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_10\sample10_pressure_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_10\sample10_density_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_10\sample10_velocity-magnitude_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_10\sample10_mach-number_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_10\sample10_temperature_comparison.png
+
+Validating Sample_ID 11...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.8799e+05   3.0868e+05   31.78%     0.8990
+density                   5.2648e-01   8.8104e-01   36.42%     0.8673
+velocity-magnitude        1.0696e+02   2.2244e+02   62.11%     0.6142
+mach-number               4.2973e-01   6.9041e-01   42.54%     0.8190
+temperature               1.0422e+02   1.8210e+02   46.40%     0.7847
+================================================================================
+  Downsampled 903,199 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_11\sample11_pressure_comparison.png
+  Downsampled 903,199 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_11\sample11_density_comparison.png
+  Downsampled 903,199 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_11\sample11_velocity-magnitude_comparison.png
+  Downsampled 903,199 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_11\sample11_mach-number_comparison.png
+  Downsampled 903,199 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_11\sample11_temperature_comparison.png
+
+Validating Sample_ID 12...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.4972e+05   2.6862e+05   41.08%     0.8313
+density                   5.1840e-01   8.4432e-01   41.85%     0.8248
+velocity-magnitude        1.0689e+02   2.0055e+02   48.24%     0.7672
+mach-number               4.1090e-01   6.0584e-01   37.56%     0.8589
+temperature               8.8113e+01   1.4008e+02   38.47%     0.8520
+================================================================================
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_12\sample12_pressure_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_12\sample12_density_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_12\sample12_velocity-magnitude_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_12\sample12_mach-number_comparison.png
+  Downsampled 878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_12\sample12_temperature_comparison.png
+
+Validating Sample_ID 13...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.3851e+05   2.2407e+05   33.89%     0.8851
+density                   4.9299e-01   7.8157e-01   37.75%     0.8575
+velocity-magnitude        8.4236e+01   1.8100e+02   49.97%     0.7503
+mach-number               3.4944e-01   5.3269e-01   37.43%     0.8599
+temperature               7.3147e+01   1.1881e+02   39.07%     0.8474
+================================================================================
+  Downsampled 722,799 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_13\sample13_pressure_comparison.png
+  Downsampled 722,799 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_13\sample13_density_comparison.png
+  Downsampled 722,799 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_13\sample13_velocity-magnitude_comparison.png
+  Downsampled 722,799 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_13\sample13_mach-number_comparison.png
+  Downsampled 722,799 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_13\sample13_temperature_comparison.png
+
+Validating Sample_ID 14...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  3.1050e+05   9.0543e+05   74.13%     0.4505
+density                   9.2062e-01   2.1667e+00   65.23%     0.5746
+velocity-magnitude        1.4568e+02   2.6390e+02   78.01%     0.3914
+mach-number               4.3304e-01   6.8344e-01   54.67%     0.7011
+temperature               1.0201e+02   1.6557e+02   64.13%     0.5887
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_14\sample14_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_14\sample14_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_14\sample14_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_14\sample14_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_14\sample14_temperature_comparison.png
+
+Validating Sample_ID 15...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.3573e+05   2.4626e+05   30.93%     0.9043
+density                   4.7138e-01   8.3245e-01   38.85%     0.8491
+velocity-magnitude        8.2220e+01   1.8188e+02   51.08%     0.7390
+mach-number               3.3344e-01   5.4401e-01   35.76%     0.8721
+temperature               8.0110e+01   1.4142e+02   38.98%     0.8481
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_15\sample15_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_15\sample15_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_15\sample15_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_15\sample15_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_15\sample15_temperature_comparison.png
+
+Validating Sample_ID 16...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.6081e+05   3.5061e+05   41.09%     0.8312
+density                   5.3130e-01   9.7768e-01   46.66%     0.7823
+velocity-magnitude        9.6990e+01   2.0870e+02   54.69%     0.7009
+mach-number               4.1221e-01   6.3280e-01   37.20%     0.8616
+temperature               9.6453e+01   1.7056e+02   39.77%     0.8419
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_16\sample16_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_16\sample16_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_16\sample16_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_16\sample16_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_16\sample16_temperature_comparison.png
+
+Validating Sample_ID 17...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.7929e+05   3.1435e+05   46.68%     0.7821
+density                   5.7886e-01   9.4752e-01   47.06%     0.7785
+velocity-magnitude        9.9317e+01   2.0432e+02   56.75%     0.6779
+mach-number               4.3930e-01   7.3623e-01   48.32%     0.7665
+temperature               8.9004e+01   1.5539e+02   46.93%     0.7798
+================================================================================
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_17\sample17_pressure_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_17\sample17_density_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_17\sample17_velocity-magnitude_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_17\sample17_mach-number_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_17\sample17_temperature_comparison.png
+
+Validating Sample_ID 18...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.8114e+05   2.9324e+05   33.78%     0.8859
+density                   5.7275e-01   9.1045e-01   38.86%     0.8490
+velocity-magnitude        1.6463e+02   2.3351e+02   71.62%     0.4871
+mach-number               4.9883e-01   7.0773e-01   49.34%     0.7566
+temperature               8.5753e+01   1.5195e+02   46.57%     0.7832
+================================================================================
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_18\sample18_pressure_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_18\sample18_density_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_18\sample18_velocity-magnitude_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_18\sample18_mach-number_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_18\sample18_temperature_comparison.png
+
+Validating Sample_ID 19...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  3.9361e+05   8.3100e+05   72.52%     0.4741
+density                   1.0141e+00   1.9440e+00   77.71%     0.3961
+velocity-magnitude        3.5090e+02   4.6722e+02   118.36%    -0.4009
+mach-number               1.4489e+00   1.6694e+00   92.79%     0.1391
+temperature               2.1293e+02   3.5512e+02   77.34%     0.4018
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_19\sample19_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_19\sample19_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_19\sample19_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_19\sample19_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_19\sample19_temperature_comparison.png
+
+Validating Sample_ID 20...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.1309e+05   1.8771e+05   36.78%     0.8647
+density                   4.5275e-01   7.5272e-01   38.91%     0.8486
+velocity-magnitude        7.7907e+01   1.5758e+02   63.82%     0.5927
+mach-number               3.0526e-01   5.0006e-01   46.00%     0.7884
+temperature               6.3792e+01   1.0566e+02   51.33%     0.7365
+================================================================================
+  Downsampled 914,403 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_20\sample20_pressure_comparison.png
+  Downsampled 914,403 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_20\sample20_density_comparison.png
+  Downsampled 914,403 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_20\sample20_velocity-magnitude_comparison.png
+  Downsampled 914,403 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_20\sample20_mach-number_comparison.png
+  Downsampled 914,403 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_20\sample20_temperature_comparison.png
+
+Validating Sample_ID 21...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.5717e+05   5.3627e+05   49.66%     0.7534
+density                   7.0364e-01   1.2008e+00   49.11%     0.7589
+velocity-magnitude        2.0394e+02   2.8573e+02   70.92%     0.4971
+mach-number               7.7096e-01   9.3352e-01   50.83%     0.7416
+temperature               1.4619e+02   2.5463e+02   54.90%     0.6986
+================================================================================
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_21\sample21_pressure_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_21\sample21_density_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_21\sample21_velocity-magnitude_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_21\sample21_mach-number_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_21\sample21_temperature_comparison.png
+
+Validating Sample_ID 22...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.8004e+05   3.1693e+05   42.89%     0.8160
+density                   5.6280e-01   9.8319e-01   49.62%     0.7538
+velocity-magnitude        2.0878e+02   2.9662e+02   72.00%     0.4816
+mach-number               4.7895e-01   6.9767e-01   41.55%     0.8273
+temperature               1.1561e+02   2.0261e+02   48.26%     0.7671
+================================================================================
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_22\sample22_pressure_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_22\sample22_density_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_22\sample22_velocity-magnitude_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_22\sample22_mach-number_comparison.png
+  Downsampled 914,400 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_22\sample22_temperature_comparison.png
+
+Validating Sample_ID 23...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.3340e+05   2.1748e+05   34.79%     0.8790
+density                   4.4657e-01   7.4434e-01   32.24%     0.8961
+velocity-magnitude        6.6680e+01   1.4073e+02   57.52%     0.6692
+mach-number               2.6184e-01   4.3817e-01   44.29%     0.8038
+temperature               5.0868e+01   8.4081e+01   43.26%     0.8128
+================================================================================
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_23\sample23_pressure_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_23\sample23_density_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_23\sample23_velocity-magnitude_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_23\sample23_mach-number_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_23\sample23_temperature_comparison.png
+
+Validating Sample_ID 24...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  3.5523e+05   5.4670e+05   29.00%     0.9159
+density                   7.3290e-01   1.1836e+00   35.39%     0.8748
+velocity-magnitude        1.6280e+02   2.6874e+02   55.25%     0.6948
+mach-number               6.9858e-01   9.3221e-01   47.02%     0.7789
+temperature               1.5852e+02   2.4467e+02   43.16%     0.8137
+================================================================================
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_24\sample24_pressure_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_24\sample24_density_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_24\sample24_velocity-magnitude_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_24\sample24_mach-number_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_24\sample24_temperature_comparison.png
+
+Validating Sample_ID 25...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.8089e+05   2.9042e+05   78.16%     0.3891
+density                   7.5656e-01   1.1839e+00   85.23%     0.2735
+velocity-magnitude        1.5180e+02   2.9355e+02   78.48%     0.3841
+mach-number               6.9804e-01   9.6329e-01   66.71%     0.5549
+temperature               1.4960e+02   2.2032e+02   66.52%     0.5574
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_25\sample25_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_25\sample25_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_25\sample25_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_25\sample25_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_25\sample25_temperature_comparison.png
+
+Validating Sample_ID 26...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.2196e+05   2.0578e+05   37.13%     0.8622
+density                   4.5826e-01   7.2219e-01   34.56%     0.8805
+velocity-magnitude        7.9364e+01   1.4288e+02   53.41%     0.7147
+mach-number               2.9579e-01   4.2741e-01   41.03%     0.8316
+temperature               5.9176e+01   8.6236e+01   41.23%     0.8300
+================================================================================
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_26\sample26_pressure_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_26\sample26_density_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_26\sample26_velocity-magnitude_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_26\sample26_mach-number_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_26\sample26_temperature_comparison.png
+
+Validating Sample_ID 27...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.0791e+05   3.4986e+05   51.28%     0.7371
+density                   6.2830e-01   1.0074e+00   49.32%     0.7567
+velocity-magnitude        1.1486e+02   2.2728e+02   59.63%     0.6444
+mach-number               4.6789e-01   6.9107e-01   44.21%     0.8045
+temperature               1.0128e+02   1.7168e+02   47.65%     0.7729
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_27\sample27_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_27\sample27_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_27\sample27_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_27\sample27_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_27\sample27_temperature_comparison.png
+
+Validating Sample_ID 28...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.5295e+05   2.4867e+05   34.62%     0.8801
+density                   5.3283e-01   8.1787e-01   36.87%     0.8640
+velocity-magnitude        1.1379e+02   2.1962e+02   57.83%     0.6656
+mach-number               4.3432e-01   6.6803e-01   44.95%     0.7979
+temperature               1.0339e+02   1.6802e+02   48.26%     0.7671
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_28\sample28_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_28\sample28_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_28\sample28_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_28\sample28_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_28\sample28_temperature_comparison.png
+
+Validating Sample_ID 29...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.0640e+06   2.7060e+06   79.09%     0.3746
+density                   2.0449e+00   4.6266e+00   78.82%     0.3787
+velocity-magnitude        2.1577e+02   3.2622e+02   84.99%     0.2777
+mach-number               7.3963e-01   1.0868e+00   64.50%     0.5840
+temperature               2.0461e+02   3.2370e+02   63.36%     0.5986
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_29\sample29_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_29\sample29_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_29\sample29_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_29\sample29_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_29\sample29_temperature_comparison.png
+
+Validating Sample_ID 30...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.7202e+05   3.0405e+05   28.97%     0.9161
+density                   5.3696e-01   8.7938e-01   33.21%     0.8897
+velocity-magnitude        8.9507e+01   1.8185e+02   46.37%     0.7850
+mach-number               3.5902e-01   5.3111e-01   34.20%     0.8830
+temperature               8.1765e+01   1.3323e+02   36.17%     0.8692
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_30\sample30_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_30\sample30_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_30\sample30_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_30\sample30_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_30\sample30_temperature_comparison.png
+
+Validating Sample_ID 31...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.0734e+05   2.0749e+05   26.71%     0.9286
+density                   3.7764e-01   6.6519e-01   29.92%     0.9105
+velocity-magnitude        7.1012e+01   1.5198e+02   44.41%     0.8028
+mach-number               2.8195e-01   4.3542e-01   32.36%     0.8953
+temperature               5.9516e+01   1.0165e+02   33.38%     0.8886
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_31\sample31_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_31\sample31_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_31\sample31_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_31\sample31_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_31\sample31_temperature_comparison.png
+
+Validating Sample_ID 32...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.7230e+05   3.2235e+05   38.10%     0.8549
+density                   5.2100e-01   8.4860e-01   44.14%     0.8052
+velocity-magnitude        1.0169e+02   2.0989e+02   48.41%     0.7657
+mach-number               4.6108e-01   6.7686e-01   36.54%     0.8665
+temperature               1.0596e+02   1.7368e+02   36.04%     0.8701
+================================================================================
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_32\sample32_pressure_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_32\sample32_density_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_32\sample32_velocity-magnitude_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_32\sample32_mach-number_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_32\sample32_temperature_comparison.png
+
+Validating Sample_ID 33...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.0154e+05   1.6733e+05   32.82%     0.8923
+density                   3.9876e-01   6.2088e-01   32.48%     0.8945
+velocity-magnitude        7.1458e+01   1.4920e+02   58.64%     0.6561
+mach-number               2.6735e-01   4.3866e-01   41.76%     0.8256
+temperature               5.1740e+01   8.8374e+01   43.02%     0.8149
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_33\sample33_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_33\sample33_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_33\sample33_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_33\sample33_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_33\sample33_temperature_comparison.png
+
+Validating Sample_ID 34...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.7707e+05   3.3221e+05   73.68%     0.4572
+density                   8.5729e-01   1.6063e+00   90.38%     0.1832
+velocity-magnitude        1.2043e+02   2.3406e+02   84.33%     0.2888
+mach-number               3.8390e-01   6.4133e-01   58.61%     0.6565
+temperature               8.7597e+01   1.4901e+02   69.15%     0.5218
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_34\sample34_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_34\sample34_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_34\sample34_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_34\sample34_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_34\sample34_temperature_comparison.png
+
+Validating Sample_ID 35...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.1697e+05   2.0152e+05   27.28%     0.9256
+density                   4.3030e-01   6.9647e-01   31.07%     0.9035
+velocity-magnitude        9.2742e+01   1.7626e+02   45.26%     0.7951
+mach-number               3.3188e-01   4.9822e-01   32.45%     0.8947
+temperature               7.2781e+01   1.1871e+02   32.37%     0.8952
+================================================================================
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_35\sample35_pressure_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_35\sample35_density_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_35\sample35_velocity-magnitude_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_35\sample35_mach-number_comparison.png
+  Downsampled 762,300 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_35\sample35_temperature_comparison.png
+
+Validating Sample_ID 36...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.1428e+05   1.9074e+05   38.76%     0.8497
+density                   4.5061e-01   6.9834e-01   38.41%     0.8524
+velocity-magnitude        8.2912e+01   1.7540e+02   58.74%     0.6550
+mach-number               3.3798e-01   5.3039e-01   44.09%     0.8056
+temperature               7.0753e+01   1.1780e+02   47.51%     0.7742
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_36\sample36_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_36\sample36_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_36\sample36_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_36\sample36_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_36\sample36_temperature_comparison.png
+
+Validating Sample_ID 37...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.0929e+05   1.6852e+05   36.28%     0.8684
+density                   4.4827e-01   6.6322e-01   35.20%     0.8761
+velocity-magnitude        7.6741e+01   1.5901e+02   57.79%     0.6660
+mach-number               3.4337e-01   5.1428e-01   43.24%     0.8130
+temperature               6.7246e+01   1.0708e+02   45.63%     0.7918
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_37\sample37_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_37\sample37_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_37\sample37_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_37\sample37_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_37\sample37_temperature_comparison.png
+
+Validating Sample_ID 38...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.2789e+05   3.6892e+05   57.71%     0.6670
+density                   7.1888e-01   1.1875e+00   55.25%     0.6947
+velocity-magnitude        1.3929e+02   2.4132e+02   79.09%     0.3745
+mach-number               5.2053e-01   7.0413e-01   58.68%     0.6557
+temperature               1.0546e+02   1.6410e+02   64.88%     0.5791
+================================================================================
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_38\sample38_pressure_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_38\sample38_density_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_38\sample38_velocity-magnitude_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_38\sample38_mach-number_comparison.png
+  Downsampled 914,401 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_38\sample38_temperature_comparison.png
+
+Validating Sample_ID 39...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.2388e+05   2.0853e+05   35.91%     0.8710
+density                   4.4694e-01   7.2433e-01   38.27%     0.8535
+velocity-magnitude        8.6656e+01   1.6035e+02   45.52%     0.7928
+mach-number               3.3532e-01   4.7758e-01   35.54%     0.8737
+temperature               7.0659e+01   1.1189e+02   36.66%     0.8656
+================================================================================
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_39\sample39_pressure_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_39\sample39_density_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_39\sample39_velocity-magnitude_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_39\sample39_mach-number_comparison.png
+  Downsampled 762,299 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_39\sample39_temperature_comparison.png
+
+Validating Sample_ID 40...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.2876e+05   2.3028e+05   29.87%     0.9108
+density                   4.7911e-01   7.7846e-01   37.60%     0.8586
+velocity-magnitude        8.6605e+01   1.8305e+02   47.35%     0.7758
+mach-number               3.6823e-01   5.6145e-01   33.06%     0.8907
+temperature               8.7906e+01   1.5251e+02   36.62%     0.8659
+================================================================================
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_40\sample40_pressure_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_40\sample40_density_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_40\sample40_velocity-magnitude_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_40\sample40_mach-number_comparison.png
+  Downsampled 914,399 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_40\sample40_temperature_comparison.png
+
+Validating Sample_ID 41...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.3778e+05   2.3094e+05   43.56%     0.8103
+density                   4.8783e-01   7.7651e-01   39.69%     0.8425
+velocity-magnitude        9.1450e+01   1.9065e+02   59.04%     0.6514
+mach-number               3.4271e-01   5.6244e-01   46.77%     0.7813
+temperature               7.1623e+01   1.1891e+02   48.07%     0.7689
+================================================================================
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_41\sample41_pressure_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_41\sample41_density_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_41\sample41_velocity-magnitude_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_41\sample41_mach-number_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_41\sample41_temperature_comparison.png
+
+Validating Sample_ID 42...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.2471e+05   2.2027e+05   30.21%     0.9087
+density                   4.5275e-01   7.6573e-01   36.09%     0.8697
+velocity-magnitude        8.3585e+01   1.6669e+02   44.39%     0.8030
+mach-number               3.3057e-01   5.0262e-01   34.98%     0.8776
+temperature               7.2742e+01   1.1710e+02   35.14%     0.8765
+================================================================================
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_42\sample42_pressure_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_42\sample42_density_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_42\sample42_velocity-magnitude_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_42\sample42_mach-number_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_42\sample42_temperature_comparison.png
+
+Validating Sample_ID 43...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.5535e+05   2.6477e+05   31.48%     0.9009
+density                   5.0201e-01   8.3546e-01   36.29%     0.8683
+velocity-magnitude        9.9033e+01   1.9755e+02   54.36%     0.7045
+mach-number               3.9938e-01   6.0912e-01   38.13%     0.8546
+temperature               8.8933e+01   1.5016e+02   40.82%     0.8333
+================================================================================
+  Downsampled 940,749 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_43\sample43_pressure_comparison.png
+  Downsampled 940,749 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_43\sample43_density_comparison.png
+  Downsampled 940,749 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_43\sample43_velocity-magnitude_comparison.png
+  Downsampled 940,749 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_43\sample43_mach-number_comparison.png
+  Downsampled 940,749 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_43\sample43_temperature_comparison.png
+
+Validating Sample_ID 44...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.3173e+05   2.2971e+05   29.12%     0.9152
+density                   4.9465e-01   8.2574e-01   38.70%     0.8502
+velocity-magnitude        9.2024e+01   1.9390e+02   49.00%     0.7599
+mach-number               4.2323e-01   6.8088e-01   40.30%     0.8376
+temperature               9.2669e+01   1.6951e+02   43.35%     0.8121
+================================================================================
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_44\sample44_pressure_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_44\sample44_density_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_44\sample44_velocity-magnitude_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_44\sample44_mach-number_comparison.png
+  Downsampled 940,753 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_44\sample44_temperature_comparison.png
+
+Validating Sample_ID 45...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.2439e+05   1.8660e+05   43.47%     0.8111
+density                   4.5489e-01   6.6049e-01   39.08%     0.8473
+velocity-magnitude        8.3107e+01   1.6124e+02   61.54%     0.6213
+mach-number               3.5146e-01   5.4128e-01   48.93%     0.7606
+temperature               7.0556e+01   1.1177e+02   51.39%     0.7359
+================================================================================
+  Downsampled 1,003,499 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_45\sample45_pressure_comparison.png
+  Downsampled 1,003,499 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_45\sample45_density_comparison.png
+  Downsampled 1,003,499 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_45\sample45_velocity-magnitude_comparison.png
+  Downsampled 1,003,499 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_45\sample45_mach-number_comparison.png
+  Downsampled 1,003,499 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_45\sample45_temperature_comparison.png
+
+Validating Sample_ID 46...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.0800e+05   1.8001e+05   29.73%     0.9116
+density                   4.3018e-01   7.0780e-01   32.72%     0.8929
+velocity-magnitude        7.6588e+01   1.5076e+02   48.18%     0.7678
+mach-number               2.8616e-01   4.3977e-01   36.38%     0.8677
+temperature               5.7913e+01   9.4043e+01   37.07%     0.8626
+================================================================================
+  Downsampled 940,751 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_46\sample46_pressure_comparison.png
+  Downsampled 940,751 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_46\sample46_density_comparison.png
+  Downsampled 940,751 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_46\sample46_velocity-magnitude_comparison.png
+  Downsampled 940,751 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_46\sample46_mach-number_comparison.png
+  Downsampled 940,751 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_46\sample46_temperature_comparison.png
+
+Validating Sample_ID 47...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.0309e+05   1.6723e+05   33.51%     0.8877
+density                   4.5491e-01   7.0652e-01   39.81%     0.8415
+velocity-magnitude        8.3289e+01   1.5766e+02   45.70%     0.7912
+mach-number               3.1261e-01   4.6086e-01   35.35%     0.8750
+temperature               6.7790e+01   1.0561e+02   37.31%     0.8608
+================================================================================
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_47\sample47_pressure_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_47\sample47_density_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_47\sample47_velocity-magnitude_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_47\sample47_mach-number_comparison.png
+  Downsampled 940,750 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_47\sample47_temperature_comparison.png
+
+Validating Sample_ID 48...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.6869e+05   3.0422e+05   41.74%     0.8258
+density                   5.7187e-01   8.9757e-01   45.71%     0.7910
+velocity-magnitude        9.8721e+01   2.0096e+02   49.23%     0.7576
+mach-number               4.4255e-01   6.3113e-01   37.25%     0.8613
+temperature               9.9024e+01   1.5937e+02   38.92%     0.8486
+================================================================================
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_48\sample48_pressure_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_48\sample48_density_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_48\sample48_velocity-magnitude_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_48\sample48_mach-number_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_48\sample48_temperature_comparison.png
+
+Validating Sample_ID 49...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  1.1856e+05   1.8554e+05   41.27%     0.8297
+density                   4.7080e-01   6.8963e-01   41.41%     0.8285
+velocity-magnitude        8.5609e+01   1.5995e+02   54.68%     0.7010
+mach-number               3.3035e-01   5.3124e-01   47.72%     0.7723
+temperature               6.3607e+01   1.0109e+02   46.32%     0.7854
+================================================================================
+  Downsampled 1,878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_49\sample49_pressure_comparison.png
+  Downsampled 1,878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_49\sample49_density_comparison.png
+  Downsampled 1,878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_49\sample49_velocity-magnitude_comparison.png
+  Downsampled 1,878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_49\sample49_mach-number_comparison.png
+  Downsampled 1,878,250 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_49\sample49_temperature_comparison.png
+
+Validating Sample_ID 50...
+
+================================================================================
+ERROR STATISTICS REPORT
+================================================================================
+
+Field                     MAE          RMSE         Rel L2     R²
+--------------------------------------------------------------------------------
+pressure                  2.0803e+05   3.5615e+05   41.36%     0.8289
+density                   7.4171e-01   1.1236e+00   44.69%     0.8003
+velocity-magnitude        1.3327e+02   2.6539e+02   74.54%     0.4444
+mach-number               6.5110e-01   8.7079e-01   63.51%     0.5966
+temperature               1.1143e+02   1.7009e+02   56.17%     0.6845
+================================================================================
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_50\sample50_pressure_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_50\sample50_density_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_50\sample50_velocity-magnitude_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_50\sample50_mach-number_comparison.png
+  Downsampled 940,752 points to 500,000 for visualization
+  Saved: C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model\checkpoints\visualizations\sample_50\sample50_temperature_comparison.png
+
+C:\Users\Sunil\Downloads\Mini Project Folder\surrogate_model>
