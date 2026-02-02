@@ -267,18 +267,18 @@ The following comparison plots demonstrate the model's ability to accurately pre
 ## Project Structure
 
 ```
-meshed file/
+HypersonicInlet-DeepONet/
 ├── cfd_inputs/
 │   └── hypersonic_inlet_input_parameters.csv  # Input parameters for all samples
 │
-├── cfd_outputs/                                # CFD simulation results
+├── cfd_outputs/                                # CFD simulation results (not in repo)
 │   ├── d1.csv                                  # ~1.5M nodes each
 │   ├── d2.csv
-│   ├── d3.csv
 │   ├── ...
-│   └── d30.csv                                 # 30 files available
+│   └── dN.csv                                  # Add as many as you simulate
 │
 ├── simulation_mapping.csv                      # Maps filenames to sample IDs
+├── requirements.txt                            # Python dependencies
 ├── training_history_plot.png                   # Visualization of training
 │
 └── surrogate_model/                            # Main model directory
@@ -307,13 +307,68 @@ meshed file/
 
 ---
 
+## Generating CFD Output Files
+
+> ⚠️ **Note**: The `cfd_outputs/` folder is not included in this repository due to large file sizes (~75 MB each). You must generate these files from your own ANSYS Fluent simulations.
+
+### Exporting from ANSYS Fluent
+
+Follow these steps to export CFD simulation results in the correct format:
+
+1. **Complete your CFD simulation** in ANSYS Fluent
+
+2. **Export Solution Data**:
+   - Go to **File → Export → Solution Data...**
+   - Or use the ribbon: **Results → Reports → Export**
+
+3. **Configure Export Settings**:
+   - **File Type**: Select **ASCII**
+   - **Location**: Select **Node** (not Cell Center)
+   - **Cell Center**: ❌ Uncheck this option
+   - **Node Values**: ✅ Check this option
+
+4. **Select Variables to Export**:
+   - `x-coordinate`
+   - `y-coordinate`
+   - `pressure`
+   - `density`
+   - `velocity-magnitude`
+   - `mach-number`
+   - `temperature`
+
+5. **Save the File**:
+   - Name it as `d1.csv`, `d2.csv`, `d3.csv`, etc.
+   - Save to the `cfd_outputs/` folder
+
+6. **Update Mapping File**:
+   - Add a new row to `simulation_mapping.csv`:
+   ```csv
+   filename,sample_id
+   d1.csv,1
+   d2.csv,2
+   ...
+   ```
+
+### Expected CSV Format
+
+Your exported CSV files should have this structure:
+
+```csv
+x-coordinate, y-coordinate, pressure, density, velocity-magnitude, mach-number, temperature
+0.0, 0.0, 101325.0, 1.225, 0.0, 0.0, 288.15
+0.001, 0.0, 101400.0, 1.230, 5.2, 0.015, 288.20
+...
+```
+
+---
+
 ## Installation & Setup
 
 ### Prerequisites
 
 ```bash
-# Required packages
-pip install torch numpy pandas matplotlib fastapi uvicorn
+# Install all dependencies
+pip install -r requirements.txt
 ```
 
 ### Python Environment

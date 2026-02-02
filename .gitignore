@@ -30,3 +30,6 @@ Thumbs.db
 build/
 dist/
 *.egg-info/
+
+# CFD output files (too large for GitHub - see README for how to generate)
+cfd_outputs/*.csv
